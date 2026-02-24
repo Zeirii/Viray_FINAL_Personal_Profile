@@ -22,7 +22,6 @@ const handleKeyDown = (e) => {
     triggerGlitch()
     inputSequence = ""
   }
-  // Reset if sequence gets too long
   if (inputSequence.length > 20) inputSequence = ""
 }
 
@@ -48,7 +47,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeyDown))
 
     <div v-show="!isLoading" class="animate-fade-in flex flex-col min-h-screen">
       <header class="p-4 shadow-sm sticky top-0 z-50 bg-white/80 dark:bg-[#0a0c10]/80 backdrop-blur-md border-b border-zinc-100 dark:border-zinc-800">
-        <nav class="max-w-4xl mx-auto flex justify-between items-center">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center px-6">
           <div class="flex space-x-10 text-lg font-bold tracking-wide">
             <RouterLink 
               v-for="link in [{to: '/', label: 'Profile'}, {to: '/guestbook', label: 'Guestbook'}]"
@@ -60,13 +59,13 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeyDown))
               <span class="absolute bottom-0 left-0 h-1 bg-purple-500 transition-all duration-300 w-0 group-hover:w-full group-[.is-active]:w-full group-[.is-active]:h-[4px] group-[.is-active]:bg-purple-600"></span>
             </RouterLink>
           </div>
-          <button @click="toggleDark()" class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-zinc-200 dark:border-zinc-700 shadow-sm flex items-center">
+          <button @click="toggleDark()" class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors border border-zinc-200 dark:border-zinc-700 shadow-sm">
             {{ isDark ? '🌙 Dark' : '☀️ Light' }}
           </button>
         </nav>
       </header>
 
-      <main class="max-w-4xl mx-auto p-6 relative mt-4 flex-grow w-full">
+      <main class="w-full relative mt-4 flex-grow">
         <RouterView v-slot="{ Component }">
           <transition name="fade" mode="out-in">
             <component :is="Component" />
@@ -83,12 +82,6 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeyDown))
                 System: Secured // JISSA-APC Node: Active // Protocol: AES-256-GCM
               </span>
             </div>
-            <div class="flex items-center gap-3">
-              <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
-              <span class="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-400">
-                Registry: Antipolo_PH // Status: {{ status }} // Mode: CTF_Ready
-              </span>
-            </div>
           </div>
         </div>
       </footer>
@@ -97,5 +90,10 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeyDown))
 </template>
 
 <style>
-/* (Keep existing fade, marquee, and fadeIn animations from previous build) */
+.fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease, transform 0.3s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; transform: translateY(15px); }
+.animate-fade-in { animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.99); } to { opacity: 1; transform: scale(1); } }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 40s linear infinite; width: max-content; }
 </style>
