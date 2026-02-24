@@ -1,201 +1,127 @@
 <template>
-  <div class="flex flex-col items-center animate-fade-in pb-12">
-    <div 
-      class="w-full h-80 rounded-2xl shadow-xl relative overflow-hidden flex items-center justify-center bg-cover bg-center"
-      style="background-image: url('/castorice.gif');"
-    >
-      <div class="absolute inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-[2px]"></div>
-      
-      <div class="relative z-10 text-center text-white p-6 tracking-wide">
-        <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">Hello, I'm Kristoff Aadryk Viray</h1>
-        <p class="text-xl font-medium drop-shadow-md border-b-2 border-purple-400 inline-block pb-1">
-          2nd Year CS-SF Student | Cybersecurity & Web Dev Enthusiast
-        </p>
-      </div>
-    </div>
-
-    <div class="mt-10 w-full grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-      
-      <div class="space-y-4 md:col-span-2 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
-        <h2 class="text-2xl font-bold border-b-2 border-purple-500 pb-2 inline-block">About Me</h2>
-        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-          I'm a 20-year-old 2nd-year CS-SF student living in Antipolo. I love balancing my studies with having fun on Discord with my friends. Whether I'm diving into a new game, working on creative web projects, or creating event captions, I always try to keep things interesting. 
-          <br><br>
-          <span class="font-semibold text-purple-600 dark:text-purple-400">Status:</span> Dating someone already 💘
-        </p>
-      </div>
-
-      <div class="space-y-4 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-        <h2 class="text-2xl font-bold border-b-2 border-purple-500 pb-2 inline-block">Achievements</h2>
-        <ul class="space-y-3 text-gray-700 dark:text-gray-300">
-          <li class="flex items-start"><span class="mr-2 text-purple-500">🎓</span> Graduated Grade 12 with High Honors</li>
-          <li class="flex items-start"><span class="mr-2 text-purple-500">🛡️</span> Participated in 2 CTF competitions (Trend Micro UCTF)</li>
-          <li class="flex items-start"><span class="mr-2 text-purple-500">📢</span> Current Assistant Director of Marketing for JISSA-APC & JPCS-APC</li>
-          <li class="flex items-start"><span class="mr-2 text-purple-500">🚀</span> Future Vice President Internal of JISSA-APC (Next Year)</li>
-        </ul>
-      </div>
-
-      <div class="space-y-4 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-        <h2 class="text-2xl font-bold border-b-2 border-purple-500 pb-2 inline-block">Tech Confidence</h2>
-        <div class="space-y-4 mt-4">
-          <div v-for="skill in skills" :key="skill.name">
-            <div class="flex justify-between text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">
-              <span>{{ skill.name }}</span>
-              <span>{{ skill.level }}%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div class="bg-purple-500 h-2.5 rounded-full transition-all duration-1000 ease-out" :style="{ width: skill.level + '%' }"></div>
-            </div>
+  <div class="animate-fade-in selection:bg-purple-500/30">
+    
+    <section class="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+      <div 
+        class="w-full h-full bg-cover bg-center transition-transform duration-[2000ms] hover:scale-105" 
+        style="background-image: url('/castorice.gif'); background-position: center 30%;"
+      ></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0a0c10] via-transparent to-transparent flex items-end">
+        <div class="max-w-7xl mx-auto w-full px-6 pb-12">
+          <h1 class="text-7xl md:text-9xl font-black tracking-tighter leading-none mb-4">
+            Kristoff <br class="hidden md:block"/> Aadryk Viray
+          </h1>
+          <div class="flex items-center gap-4">
+            <span class="px-4 py-1.5 bg-purple-600 text-white rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl">
+              Status: {{ status }} 💘
+            </span>
+            <p class="text-xl font-medium text-zinc-500 italic font-serif">Antipolo, Philippines</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="space-y-6 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-        <div>
-          <h2 class="text-2xl font-bold border-b-2 border-purple-500 pb-2 inline-block mb-4">Hobbies</h2>
-          <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300 marker:text-purple-500">
-            <li>Gaming & Sleeping</li>
-            <li>Going somewhere alone (Solo dates)</li>
-            <li>Scenery viewing</li>
-            <li>Keyboard enthusiast</li>
-          </ul>
+    <main class="max-w-7xl mx-auto px-6 py-24 space-y-32">
+      
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-5">
+          <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-purple-500 mb-8">Narrative</h2>
+          <p class="text-3xl md:text-4xl font-medium leading-tight tracking-tight text-zinc-800 dark:text-zinc-200">
+            A 20-year-old developer specializing in <span class="underline decoration-purple-500 decoration-4 underline-offset-8">Systems Security</span>. I thrive on Discord, scenery, and the tactile feel of mechanical keyboards.
+          </p>
         </div>
-        
-        <div>
-          <h3 class="text-xl font-bold border-b-2 border-purple-500 pb-1 inline-block mb-3">Games I Play</h3>
-          <ul class="grid grid-cols-2 gap-2 text-sm text-gray-700 dark:text-gray-300">
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Arknights: Endfield</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Dota 2</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Genshin Impact</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Honkai: Star Rail</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Minecraft</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Valorant</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Warhammer: Darktide</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Wuthering Waves</li>
-            <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>Zenless Zone Zero</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="space-y-4 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800">
-        <h2 class="text-2xl font-bold border-b-2 border-purple-500 pb-2 inline-block">Future Goals</h2>
-        <ul class="space-y-3 text-gray-700 dark:text-gray-300">
-          <li class="flex items-center"><span class="mr-3 text-xl">💼</span> Getting a job that pays good</li>
-          <li class="flex items-center"><span class="mr-3 text-xl">🏠</span> Buy a 1M worth of house</li>
-          <li class="flex items-center"><span class="mr-3 text-xl">🏎️</span> Buy a BMW M4 Competition</li>
-          <li class="flex items-center"><span class="mr-3 text-xl">🛠️</span> Renovate my parents' house</li>
-          <li class="flex items-center"><span class="mr-3 text-xl">🎁</span> Buy what my parents want</li>
-          <li class="flex items-center"><span class="mr-3 text-xl">👨‍👩‍👧‍👦</span> Prepare for my future (wife & kids)</li>
-          <li class="flex items-center text-purple-500 font-medium mt-4">...the rest of my goals to be added soon!</li>
-        </ul>
-      </div>
-
-      <div class="md:col-span-2 bg-gradient-to-r from-purple-600 to-indigo-600 p-8 rounded-xl shadow-md text-white text-center space-y-6">
-        <h2 class="text-3xl font-bold drop-shadow-sm">Connect With Me</h2>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="https://www.linkedin.com/in/kristoff-aadryk-viray/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-lg font-medium transition-all shadow-sm hover:shadow">
-            💼 LinkedIn
-          </a>
-          <a href="https://www.facebook.com/Kristoff.Viray.5/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-lg font-medium transition-all shadow-sm hover:shadow">
-            📘 Facebook
-          </a>
-          <a href="https://www.instagram.com/zeirii_/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-lg font-medium transition-all shadow-sm hover:shadow">
-            📸 Instagram
-          </a>
-          <a href="mailto:klviray@student.apc.edu.ph" class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-6 py-3 rounded-lg font-medium transition-all shadow-sm hover:shadow">
-            ✉️ Email Me
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="mt-16 w-full space-y-6">
-      <div class="text-center">
-        <h2 class="text-3xl font-bold border-b-2 border-purple-500 pb-2 inline-block mb-2">Gallery</h2>
-        <p class="text-gray-600 dark:text-gray-400">A glimpse into my projects, events, and hobbies.</p>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 mt-6">
-        <div 
-          v-for="(image, index) in gallery" 
-          :key="index" 
-          @click="openLightbox(image)"
-          class="group relative overflow-hidden rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 aspect-square bg-gray-100 dark:bg-gray-800 flex items-center justify-center cursor-pointer"
-        >
-          <img 
-            :src="image.url" 
-            :alt="image.title" 
-            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500 ease-in-out" 
-          />
-          
-          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
-            <span class="text-white font-bold tracking-wide text-lg drop-shadow-md">{{ image.title }}</span>
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div v-for="milestone in milestones" :key="milestone.title" class="p-8 bg-zinc-50 dark:bg-zinc-900/50 rounded-3xl border border-zinc-100 dark:border-zinc-800 hover:border-purple-500/50 transition-colors">
+            <span class="text-[10px] font-mono text-purple-500 mb-4 block">{{ milestone.tag }}</span>
+            <h3 class="text-xl font-bold mb-2">{{ milestone.title }}</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed">{{ milestone.org }}</p>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <div 
-      v-if="selectedImage" 
-      class="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 animate-fade-in"
-      @click="closeLightbox"
-    >
-      <div class="relative max-w-5xl w-full flex flex-col items-center">
-        <button 
-          @click="closeLightbox" 
-          class="absolute -top-12 right-0 md:right-4 text-white hover:text-purple-400 text-4xl font-bold transition-colors"
-        >
-          &times;
-        </button>
-        
-        <img 
-          :src="selectedImage.url" 
-          :alt="selectedImage.title" 
-          class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
-          @click.stop 
-        />
-        
-        <div class="text-center text-white mt-6 text-2xl font-bold tracking-wide drop-shadow-md">
-          {{ selectedImage.title }}
+      <section class="py-20 border-y border-zinc-100 dark:border-zinc-900">
+        <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-12 text-center">Tech Confidence</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8">
+          <div v-for="skill in [...programmingSkills, ...appSkills]" :key="skill.name" class="text-center group">
+            <div class="text-3xl font-black mb-1 group-hover:text-purple-500 transition-colors">{{ skill.level }}%</div>
+            <div class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{{ skill.name }}</div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
 
+      <section>
+        <div class="flex justify-between items-end mb-12">
+          <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400">Visual Documentation</h2>
+          <div class="h-px flex-grow mx-8 bg-zinc-100 dark:bg-zinc-900"></div>
+          <span class="text-[10px] font-mono text-zinc-400">01 — 06</span>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div v-for="img in galleryImages" :key="img" @click="selectedImage = img" 
+            class="aspect-[4/5] overflow-hidden rounded-xl cursor-pointer bg-zinc-100 dark:bg-zinc-900 group">
+            <img :src="`/gallery/${img}`" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-16 pt-20 border-t border-zinc-100 dark:border-zinc-900">
+        <div class="space-y-8">
+          <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-purple-500">Library</h2>
+          <ul class="space-y-3">
+            <li v-for="game in sortedGames" :key="game" class="text-lg font-medium opacity-60 hover:opacity-100 transition-opacity">
+              {{ game }}
+            </li>
+          </ul>
+        </div>
+        <div class="space-y-8 md:col-span-2">
+          <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-purple-500">Future Roadmap</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div v-for="goal in futureGoals" :key="goal.text" class="p-6 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl flex items-center gap-4">
+              <span class="text-2xl">{{ goal.emoji }}</span>
+              <span class="text-sm font-bold">{{ goal.text }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div v-if="selectedImage" class="fixed inset-0 z-[100] bg-white/95 dark:bg-black/98 backdrop-blur-3xl flex items-center justify-center p-8 lg:p-24" @click="selectedImage = null">
+      <img :src="`/gallery/${selectedImage}`" class="max-w-full max-h-full rounded-3xl shadow-2xl animate-zoom-in" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue' 
+import { ref, computed } from 'vue'
 
-// --- Data for the Profile ---
-const skills = [
-  { name: 'Terminal', level: 85 },
-  { name: 'Canva', level: 85 },
-  { name: 'HTML', level: 80 },
-  { name: 'CSS', level: 80 },
-  { name: 'CapCut', level: 65 },
-  { name: 'Python', level: 60 },
-  { name: 'JAVA', level: 50 },
+const status = "Dating someone already"
+const selectedImage = ref(null)
+const galleryImages = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.png']
+
+const milestones = [
+  { tag: 'LEADERSHIP (ELECT)', title: 'Future VP Internal', org: 'JISSA-APC (2026-2027)' },
+  { tag: 'LEADERSHIP', title: 'Assistant Director of Marketing', org: 'JISSA-APC & JPCS-APC' },
+  { tag: 'SECURITY', title: 'UCTF Participant', org: 'Participated in 2 Trend Micro Capture The Flag events.' },
+  { tag: 'ACADEMIC', title: 'High Honors', org: 'Grade 12 Graduation with Academic Distinction.' }
 ]
 
-const gallery = [
-  { title: 'Gallery Image 1', url: '/gallery/1.jpg' },
-  { title: 'Gallery Image 2', url: '/gallery/2.jpg' },
-  { title: 'Gallery Image 3', url: '/gallery/3.jpg' },
-  { title: 'Gallery Image 4', url: '/gallery/4.jpg' },
-  { title: 'Gallery Image 5', url: '/gallery/5.jpg' },
-  { title: 'Gallery Image 6', url: '/gallery/6.png' }, 
+const programmingSkills = [
+  { name: 'Terminal', level: 85 }, { name: 'HTML', level: 80 }, { name: 'CSS', level: 80 }, { name: 'Python', level: 60 }, { name: 'JAVA', level: 50 }
+]
+const appSkills = [
+  { name: 'Canva', level: 85 }, { name: 'CapCut', level: 65 }
 ]
 
-// --- Lightbox Logic ---
-const selectedImage = ref(null) 
+const rawGames = [
+  'Genshin Impact', 'Honkai Star Rail', 'Wuthering Waves', 'Zenless Zone Zero',
+  'Warhammer: Darktide', 'Minecraft', 'Dota 2', 'Valorant', 'Arknights Endfeild'
+]
+const sortedGames = computed(() => [...rawGames].sort((a, b) => a.localeCompare(b)))
 
-const openLightbox = (image) => {
-  selectedImage.value = image
-}
-
-const closeLightbox = () => {
-  selectedImage.value = null
-}
+const futureGoals = [
+  { emoji: '💼', text: 'High-paying tech career' },
+  { emoji: '🏠', text: 'Buy a 1M worth house' },
+  { emoji: '🏎️', text: 'BMW M4 Competition' },
+  { emoji: '🛠️', text: 'Renovate parents’ house' },
+  { emoji: '👨‍👩‍👧‍👦', text: 'Prepare for future wife & kids' }
+]
 </script>
