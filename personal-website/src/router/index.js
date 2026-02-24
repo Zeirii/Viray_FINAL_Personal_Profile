@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ProfileView from '../views/ProfileView.vue'
-import GuestbookView from '../views/GuestbookView.vue'
+import GuestbookView from '../views/GuestbookView.vue' // Add this import
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,9 +11,9 @@ const router = createRouter({
       component: ProfileView
     },
     {
-      path: '/guestbook',
+      path: '/guestbook', // This is the URL path
       name: 'guestbook',
-      component: GuestbookView
+      component: GuestbookView // This matches your new file
     }
   ]
 })
