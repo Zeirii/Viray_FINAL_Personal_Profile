@@ -130,14 +130,17 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { supabase } from '../supabase'
 
+// REFS
 const messages = ref([])
 const form = ref({ name: '', message: '' })
 const isLoading = ref(true)
 const isSubmitting = ref(false)
 const showScrollButton = ref(false)
 
+// SCROLL HANDLER
 const handleScroll = () => { showScrollButton.value = window.scrollY > 400 }
 
+// SUPABASE LOGIC
 const fetchMessages = async () => {
   try {
     const { data, error } = await supabase
@@ -153,16 +156,27 @@ const fetchMessages = async () => {
   }
 }
 
+// FIXED SUBMIT LOGIC: Now uses .value for the database insert
 const submitMessage = async () => {
   if (isSubmitting.value) return
   isSubmitting.value = true
+  
   try {
     const { error } = await supabase
       .from('guestbook')
-      .insert([{ name: form.name, message: form.message }])
+      .insert([
+        { 
+          name: form.value.name,      // Added .value to fix null constraint error
+          message: form.value.message // Added .value to fix null constraint error
+        }
+      ])
+      
     if (error) throw error
+    
+    // Clear form and refresh list
     form.value = { name: '', message: '' }
     await fetchMessages()
+    
   } catch (e) {
     alert("Error: " + e.message)
   } finally {
